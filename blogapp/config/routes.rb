@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
+  resources :comments
+
   root 'static#home'
 
   get '/about', to: 'static#about', as: :about
 
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
